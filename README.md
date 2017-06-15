@@ -19,7 +19,20 @@ dd
 
 d
 d
-d
+dw
+w
+
+w
+w
+w
+w
+w
+w
+w
+w
+
+ww
+w
 d
 d
 d
