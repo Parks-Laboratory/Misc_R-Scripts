@@ -7,10 +7,10 @@ This repository contains sample scripts to perform certain functionalities. A ta
 3. [HMDP_OBESITY qqplot](#hmdpqqplot)
 4. [Populate_HMDP](#databasepopulation)
 
-### DFShuffle <a name="dfshuffle">KEWL</a>
+### DFShuffle <a name="dfshuffle"></a>
 
 ### Epistasis Box Plot code <a name="epistasisboxplot"></a> 
 
-### HMDP Data qqplot
+### HMDP Data qqplot <a name="hmdpqqplot"></a>
 
-### SQL Database Population with huge schemas
+### SQL Database Population with huge schemas <a name="databasepopulation"></a>
