@@ -20,7 +20,7 @@ Contains a custom qqplot function which outputs a normal qqplot with respect to 
 Traditional SQL databases do not deal with large schemas (i.e. huge columns) and insertion into tables with large schemas are typically hard to do. This project is meant to be a one-off project for a dataset which large number of columns so the table schema is not specified during insertion. Concatenation logic is used instead of a static sql query. 
 
 ### Shell Script to Extract All Required Files from CHTC (CHTC is a type of cloud computing platform/grid) <a name="chtcTest"></a>
-Genome SNPs are sent to CHTC to be computed pairwise, hence resulting in a large number of files being returned by the process. Traditional methods require users to scp each file from CHTC to the local server. This shell script helps users retrieve those files without having to ssh or scp at all. The files that we want are:
+Genome SNPs are sent to CHTC to be computed pairwise, hence resulting in a large number of files being returned by the process. Traditional methods require users to scp each file from CHTC to the local server. This shell script helps users retrieve those files without having to ssh or scp at all. The .log and .gwas files will be stored in 2 separate folders. The files that we want are:
 ```bash
 fastlmm_condor_out/(trait_name)/*.log
 fastlmm_results/(trait_name)/*.gwas
