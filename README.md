@@ -29,7 +29,7 @@ fastlmm_(trait_name).sub
 ``` 
 The same string format applies for epistasis. We are mainly interested in the fastlmm and epistasis directories. 
 
-####Usage for Shell Script
+#### Usage for Shell Script
 ```bash
 ./chtc_Test.sh (trait_name) (fastlmm/epistasis)
 ```
