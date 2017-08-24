@@ -40,7 +40,8 @@ def createTable(database, tablename):
 			" transcriptionStartSite int,"\
 			" transcriptLength smallint,"\
 			" MGISymbol varchar(20),"\
-			" NCBIGeneID varchar(15));"
+			" NCBIGeneID varchar(15),"\
+			" CONSTRAINT PairID PRIMARY KEY (geneStableID, transcriptStableID));"
 	print(query)
 	
 	cursor.execute(query)
@@ -93,6 +94,7 @@ if __name__ == '__main__':
 			# Skip through the description header after the [Data] section 
 			fileFormat = next(txtReader)
 
+			errorCounter = 0
 			index = 0
 			# Resort each row to resemble the database format
 			for rows in txtReader:
@@ -128,7 +130,16 @@ if __name__ == '__main__':
 
 				# write errmsg if file I/O exception
 				except Exception as eex:
-					print("ERROR!")
+					errorCounter += 1
+
+					if errorCounter == 1:
+						f = open("GC_{!r}_err.txt".format(tablename), "w")
+						f.write(str(list) + "\n")
+						print("ERROR in index " + str(index) + "!" )
+					else:
+						print("ERROR in index " + str(index) + "!" )
+						f.write(str(list) + "\n")
+
 
 				else:
 					print("Insert " + str(index) + " was successful!")
