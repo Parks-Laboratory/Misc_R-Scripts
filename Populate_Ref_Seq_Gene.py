@@ -7,10 +7,10 @@ import argparse
 # Create parser to receive instructions from command line
 parser = argparse.ArgumentParser(description = 'Input arguments to populate database')
 # Argument to create table and whether to create new table
-parser.add_argument('-t', '--tablename', action = 'store', help = "Table for inserting data", default = "GENE_ANNOTATION")
+parser.add_argument('-t', '--tablename', action = 'store', help = "Table for inserting data", default = "Ref_Seq_GENE_ANNOTATION")
 parser.add_argument('-c', '--create', action = 'store_true', help = "Create table", default= False) 
 # Argument to specify path
-parser.add_argument('-p', '--path', action = 'store', help = "Directory path with txt file", default="E:/GENE_ANNOTATION")
+parser.add_argument('-p', '--path', action = 'store', help = "Directory path with txt file", default="E:/GENE_ANNOTATION/Ref_Seq_Annotation")
 # Argument to specify database
 parser.add_argument('-db', '--database', action = 'store', help="Database to be opened", default = "HMDP")
 # Parse all the the arguments together
@@ -28,10 +28,10 @@ def createTable(database, tablename):
 	query = "create table {!s} ".format(tablename) + "(" + \
 			"refSeqID varchar(100)," \
 			" chromosome varchar(30)," \
-			" strand int," \
-			" gene_Start float," \
-			" gene_End smallint," \
-			" gene int);"
+			" strand char(1)," \
+			" gene_Start int," \
+			" gene_End int," \
+			" gene varchar(50));"
 	print(query)
 	
 	cursor.execute(query)
@@ -90,11 +90,15 @@ if __name__ == '__main__':
 				index = index + 1
 
 				list = []
+				wanted = [1, 2, 3, 4, 5, 12]
 				nonCharList = [5, 6]
 
-				for cols in rows[2, 3, 4, 5, 6, 13]:
+				listCounter = 0
 
-					list.append(cols)
+				for cols in rows[0:]:
+					if listCounter in wanted:
+						list.append(cols)
+					listCounter += 1
 				
 				list[1] = list[1].replace("chr", "")
 
